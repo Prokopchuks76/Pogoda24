@@ -5,51 +5,29 @@
 <head>
     <meta charset="utf-8">
     <style>
-    body { background: url(https://images4.alphacoders.com/217/217394.jpg); }
+        body {
+            background: url(https://images4.alphacoders.com/217/217394.jpg);
+        }
     </style>
     <title>Кнопка</title>
 </head>
 <body>
-<form action="http://localhost:63342/p24/templates/home.html?">
-<h1>
-    <button><img src="https://dontimes.news/wp-content/uploads/2019/05/dontajms-1.jpg" height="50" alt="Погода"
-                 style="vertical-align: middle"> Pogoda24</button></h1>
-</form>
-<div>
+<form th:action="@{/api}">
     <h2>Введіть назву міста</h2>
-    <input type="text" id="city" placeholder="Введіть назву міста (англ.)..."/>
-    <button id="cityB" onclick="showDateTime();">OK</button>
-    <h2>Оберіть місто</h2>
-    <p><select  class="select" name="cityes">
-        <option selected value="Kyiv">Київ</option>
-        <option value="Kharkiv">Харків</option>
-        <option value="Lviv">Львів</option>
-        <option value="Odessa">Одеса</option>
-        <option value="Dnipro">Дніпро</option>
-        <option value="Donetsk">Донецьк</option>
-        <option value="Zaporizhzhia">Запоріжжя</option>
-        <option value="Krivoy Rog">Кривий Ріг</option>
-        <option value="Mykolaiv">Миколаїв</option>
-        <option value="Sevastopol">Севастополь</option>
-        <option value="Mariupol">Маріуполь</option>
-        <option value="Lugansk">Луганськ</option>
-        <option value="Vinnitsa">Вінниця</option>
-        <option value="Simferopol">Сімферополь</option>
-        <option value="Kherson">Херсон</option>
-        <option value="Chernihiv">Чернігів</option>
-        <option value="Poltava">Полтава</option>
-        <option value="Cherkasy">Черкаси</option>
-        <option value="Khmelnytskyi">Хмельницький</option>
-        <option value="Chernivtsi">Чернівці</option>
-        <option value="Zhytomyr">Житомир</option>
-        <option value="Sumy">Суми</option>
-        <option value="Rivne">Рівне</option>
-        <option value="Ivano Frankivsk">Івано Франківськ</option>
-        <option value="Ternopil">Тернопіль</option>
-        <option value="Lutsk">Луцьк</option>
-    </select></p>
-    <p class="text-center">Прогноз на 7 днів <br><span id="cityC"></span><p>
-    <div class="tab">
+    <input type="text" th:name="city" placeholder="Введіть назву міста (англ.)..."/>
+    <button type="submit" th:name="city" th:text="OK"/>
+</form>
+
+<h2 th:text="${cityty}"></h2>
+<h4 th:text="${jokeke}"></h4>
+
+
+
+
+
+<p class="text-center">Прогноз на 7 днів <br><span id="cityC"></span>
+<p>
+<!--div class="tab">
     <form>
         <button class="tablinks" onclick="openCity(event, 'Sunday')">Понеділок</button>
         <button class="tablinks" onclick="openCity(event, 'Monday')">Вівторок</button>
@@ -58,38 +36,35 @@
         <button class="tablinks" onclick="openCity(event, 'Thursday')">Пятниця</button>
         <button class="tablinks" onclick="openCity(event, 'Friday')">Субота</button>
         <button class="tablinks" onclick="openCity(event, 'Saturday')">Неділя</button>
-        </form>
-    </div>
-    <div id="Sunday" class="tabcontent">
-        <h3></h3>
-        <p></p>
-    </div>
-
-    <div id="Monday" class="tabcontent">
-        <h3></h3>
-        <p></p>
-    </div>
-
-    <div id="Tuesday" class="tabcontent">
-        <h3></h3>
-        <p></p>
-    </div>
-
-    <div id="Thursday" class="tabcontent">
-        <h3></h3>
-        <p></p>
-    </div>
-
-    <div id="Friday" class="tabcontent">
-        <h3></h3>
-        <p></p>
-    </div>
-
-
-    <div id="Saturday" class="tabcontent">
-        <h3>sq</h3>
-        <p></p>
-    </div>
+    </form>
+</div-->
+<div id="Sunday" class="tabcontent">
+    <h3>Sunday</h3>
+    <p th:text="${}">Temp 0 C</p>
+</div>
+<div id="Monday" class="tabcontent">
+    <h3>Monday</h3>
+    <p>Temp 1 C</p>
+</div>
+<div id="Tuesday" class="tabcontent">
+    <h3>Tuesday</h3>
+    <p>Temp 2 C</p>
+</div>
+<div id="Wednesday" class="tabcontent">
+    <h3>Wednesday</h3>
+    <p>Temp 3 C</p>
+</div>
+<div id="Thursday" class="tabcontent">
+    <h3>Thursday</h3>
+    <p>Temp 4 C</p>
+</div>
+<div id="Friday" class="tabcontent">
+    <h3>Friday</h3>
+    <p>Temp 5 C</p>
+</div>
+<div id="Saturday" class="tabcontent">
+    <h3>Saturday</h3>
+    <p>Temp 6 C</p>
 </div>
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="js2.js"></script>
