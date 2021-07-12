@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body { background: url(https://images4.alphacoders.com/217/217394.jpg); }
+    </style>
+    <title>Кнопка</title>
+</head>
+<body>
+<form action="http://localhost:63342/p24/templates/home.html?">
+<h1>
+    <button><img src="https://dontimes.news/wp-content/uploads/2019/05/dontajms-1.jpg" height="50" alt="Погода"
+                 style="vertical-align: middle"> Pogoda24</button></h1>
+</form>
+<div>
+    <h2>Введіть назву міста</h2>
+    <input type="text" id="city" placeholder="Введіть назву міста (англ.)..."/>
+    <button id="cityB" onclick="showDateTime();">OK</button>
+    <h2>Оберіть місто</h2>
+    <p><select  class="select" name="cityes">
+        <option selected value="Kyiv">Київ</option>
+        <option value="Kharkiv">Харків</option>
+        <option value="Lviv">Львів</option>
+        <option value="Odessa">Одеса</option>
+        <option value="Dnipro">Дніпро</option>
+        <option value="Donetsk">Донецьк</option>
+        <option value="Zaporizhzhia">Запоріжжя</option>
+        <option value="Krivoy Rog">Кривий Ріг</option>
+        <option value="Mykolaiv">Миколаїв</option>
+        <option value="Sevastopol">Севастополь</option>
+        <option value="Mariupol">Маріуполь</option>
+        <option value="Lugansk">Луганськ</option>
+        <option value="Vinnitsa">Вінниця</option>
+        <option value="Simferopol">Сімферополь</option>
+        <option value="Kherson">Херсон</option>
+        <option value="Chernihiv">Чернігів</option>
+        <option value="Poltava">Полтава</option>
+        <option value="Cherkasy">Черкаси</option>
+        <option value="Khmelnytskyi">Хмельницький</option>
+        <option value="Chernivtsi">Чернівці</option>
+        <option value="Zhytomyr">Житомир</option>
+        <option value="Sumy">Суми</option>
+        <option value="Rivne">Рівне</option>
+        <option value="Ivano Frankivsk">Івано Франківськ</option>
+        <option value="Ternopil">Тернопіль</option>
+        <option value="Lutsk">Луцьк</option>
+    </select></p>
+    <p class="text-center">Прогноз на 7 днів <br><span id="cityC"></span><p>
+    <div class="tab">
+    <form>
+        <button class="tablinks" onclick="openCity(event, 'Sunday')">Понеділок</button>
+        <button class="tablinks" onclick="openCity(event, 'Monday')">Вівторок</button>
+        <button class="tablinks" onclick="openCity(event, 'Tuesday')">Середа</button>
+        <button class="tablinks" onclick="openCity(event, 'Wednesday')">Четвер</button>
+        <button class="tablinks" onclick="openCity(event, 'Thursday')">Пятниця</button>
+        <button class="tablinks" onclick="openCity(event, 'Friday')">Субота</button>
+        <button class="tablinks" onclick="openCity(event, 'Saturday')">Неділя</button>
+        </form>
+    </div>
+    <div id="Sunday" class="tabcontent">
+        <h3></h3>
+        <p></p>
+    </div>
+
+    <div id="Monday" class="tabcontent">
+        <h3></h3>
+        <p></p>
+    </div>
+
+    <div id="Tuesday" class="tabcontent">
+        <h3></h3>
+        <p></p>
+    </div>
+
+    <div id="Thursday" class="tabcontent">
+        <h3></h3>
+        <p></p>
+    </div>
+
+    <div id="Friday" class="tabcontent">
+        <h3></h3>
+        <p></p>
+    </div>
+
+
+    <div id="Saturday" class="tabcontent">
+        <h3></h3>
+        <p></p>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="js2.js"></script>
+</body>
+</html>
