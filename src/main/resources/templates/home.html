@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
-
 <head>
     <meta charset="utf-8">
     <style>
@@ -13,59 +11,27 @@
 </head>
 <body>
 <form th:action="@{/api}">
-    <h2>Введіть назву міста</h2>
-    <input type="text" th:name="city" placeholder="Введіть назву міста (англ.)..."/>
+    <h2>Прогноз погоди та жарт</h2>
+    <input type="text" th:name="city" placeholder="Введіть назву міста ..."/>
     <button type="submit" th:name="city" th:text="OK"/>
 </form>
 
-<h2 th:text="${cityty}"></h2>
-<h4 th:text="${jokeke}"></h4>
+<h3 th:text="${jokeke}"></h3>
 
+<h2 class="text-center" th:text="${cityty}"></h2>
 
-
-
-
-<p class="text-center">Прогноз на 7 днів <br><span id="cityC"></span>
-<p>
-<!--div class="tab">
-    <form>
-        <button class="tablinks" onclick="openCity(event, 'Sunday')">Понеділок</button>
-        <button class="tablinks" onclick="openCity(event, 'Monday')">Вівторок</button>
-        <button class="tablinks" onclick="openCity(event, 'Tuesday')">Середа</button>
-        <button class="tablinks" onclick="openCity(event, 'Wednesday')">Четвер</button>
-        <button class="tablinks" onclick="openCity(event, 'Thursday')">Пятниця</button>
-        <button class="tablinks" onclick="openCity(event, 'Friday')">Субота</button>
-        <button class="tablinks" onclick="openCity(event, 'Saturday')">Неділя</button>
-    </form>
-</div-->
-<div id="Sunday" class="tabcontent">
-    <h3>Sunday</h3>
-    <p th:text="${}">Temp 0 C</p>
-</div>
-<div id="Monday" class="tabcontent">
-    <h3>Monday</h3>
-    <p>Temp 1 C</p>
-</div>
-<div id="Tuesday" class="tabcontent">
-    <h3>Tuesday</h3>
-    <p>Temp 2 C</p>
-</div>
-<div id="Wednesday" class="tabcontent">
-    <h3>Wednesday</h3>
-    <p>Temp 3 C</p>
-</div>
-<div id="Thursday" class="tabcontent">
-    <h3>Thursday</h3>
-    <p>Temp 4 C</p>
-</div>
-<div id="Friday" class="tabcontent">
-    <h3>Friday</h3>
-    <p>Temp 5 C</p>
-</div>
-<div id="Saturday" class="tabcontent">
-    <h3>Saturday</h3>
-    <p>Temp 6 C</p>
-</div>
+<table style="width:40%; text-align: center">
+    <tr>
+        <th>Дата</th>
+        <th>Час</th>
+        <th>Температура</th>
+    </tr>
+    <tr th:each="dt: ${days}">
+        <td th:text="${#dates.format(new java.util.Date(dt.dt * 1000), 'dd.MM.yyyy')}"/>
+        <td th:text="${#dates.format(new java.util.Date(dt.dt * 1000), 'HH:MM')}"/>
+        <td th:text="${dt.main.temp} + ' &#8451;'"/>
+    </tr>
+</table>
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="js2.js"></script>
 </body>

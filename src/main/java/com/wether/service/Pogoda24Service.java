@@ -49,7 +49,10 @@ public class Pogoda24Service {
         mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
         mapper.configure(JsonParser.Feature.ALLOW_BACKSLASH_ESCAPING_ANY_CHARACTER, true);
         Pogoda24Joke joke = mapper.readValue(response.body(), Pogoda24Joke.class);
-        data.setJoke(joke.getContent());
+        String filteredJoke = joke.getContent();
+        filteredJoke = filteredJoke.replace("\"","");
+        filteredJoke = filteredJoke.replace("\"","");
+        data.setJoke(filteredJoke);
     }
 
     private void getWeather(Pogoda24Data data) throws IOException, InterruptedException {
